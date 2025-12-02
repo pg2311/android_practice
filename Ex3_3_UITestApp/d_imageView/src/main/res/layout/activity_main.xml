@@ -1,0 +1,253 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".MainActivity">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="?attr/colorPrimary"
+        app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
+        app:title="위젯(ImageView)"
+        app:titleTextColor="@color/white" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <GridLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:columnCount="2">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_columnSpan="2"
+                android:layout_marginTop="10dp"
+                android:text="원래 이미지 " />
+            <!-- 원래 이미지 -->
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_columnSpan="2"
+                android:layout_margin="5dp"
+                android:background="@color/design_default_color_surface"
+                android:contentDescription="스크린리더가 읽어줄 텍스트입니다"
+                android:src="@drawable/dog02" />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_columnSpan="2"
+                android:layout_margin="5dp"
+                android:background="@color/design_default_color_surface"
+                android:src="@drawable/call_48" />
+
+            <!--
+            android:scaleType의 속성들
+            fit~~~ 는 큰 그림을 작은 영역에 맞출때 사용 하고
+            center~~~ 는 작은 그림을 큰 영역에 맞출때 사용 한다
+
+            fitXY: 이미지를 ImageView의 크기에 맞추기 위해 비율을 무시하고 늘리거나 줄입니다.(scaleType의 default값)
+            fitCenter: 이미지를 ImageView의 중앙에 배치하고, 비율을 유지하며 크기를 조정합니다.
+                               즉, 이미지가 ImageView에 맞추어지지만 왜곡되지 않습니다.(확대)
+            fitStart : 이미지의 비율은 유지되지만, ImageView의 경계에 맞추어 왼쪽 상단에 정렬
+
+            center : 이미지를 중앙에 배치하지만, 크기를 변경하지 않아 이미지가 잘릴 수 있음.
+            centerInside : 이미지가 ImageView 안에 완전히 들어가도록 크기를 조정하며, 비율을 유지하고 빈 공간이 남을 수 있음.
+                           (확대안됨)
+            centerCrop :  이미지를 ImageView의 크기에 맞게 잘라서 중앙에 배치.
+                          이미지의 비율을 유지하면서 뷰의 경계에 맞춰 잘라지기 때문에 전체 이미지가 보이지 않을 수 있지만,
+                          중앙 부분이 강조됨
+            -->
+            <!-- 보라 fitXY-->
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_columnSpan="2"
+                android:layout_marginTop="10dp"
+                android:text="fitXY" />
+
+            <ImageView
+                android:layout_width="180dp"
+                android:layout_height="100dp"
+                android:layout_margin="5dp"
+                android:background="#ccaaff"
+                android:scaleType="fitXY"
+                android:src="@drawable/dog02" />
+
+            <ImageView
+                android:layout_width="180dp"
+                android:layout_height="100dp"
+                android:layout_margin="5dp"
+                android:background="#ccaaff"
+                android:scaleType="fitXY"
+                android:src="@drawable/call_48" />
+            <!--분홍 fitCenter-->
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_columnSpan="2"
+                android:layout_marginTop="10dp"
+                android:text="fitCenter" />
+
+            <ImageView
+                android:layout_width="200dp"
+                android:layout_height="100dp"
+                android:layout_margin="5dp"
+                android:background="#ffccff"
+                android:padding="0dp"
+                android:scaleType="fitCenter"
+                app:srcCompat="@drawable/dog02" />
+
+            <ImageView
+                android:layout_width="180dp"
+                android:layout_height="100dp"
+                android:layout_margin="5dp"
+                android:background="#ffccff"
+                android:padding="0dp"
+                android:scaleType="fitCenter"
+                app:srcCompat="@drawable/call_48" />
+            <!--초록 fitStart-->
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_columnSpan="2"
+                android:layout_marginTop="10dp"
+                android:text="fitStart" />
+
+            <ImageView
+                android:layout_width="180dp"
+                android:layout_height="100dp"
+                android:layout_margin="5dp"
+                android:background="#ccff00"
+                android:scaleType="fitStart"
+                app:srcCompat="@drawable/dog02" />
+
+            <ImageView
+                android:layout_width="180dp"
+                android:layout_height="100dp"
+                android:layout_margin="5dp"
+                android:background="#ccff00"
+                android:scaleType="fitStart"
+                app:srcCompat="@drawable/call_48" />
+
+            <!-- 노랑 fitEnd-->
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_columnSpan="2"
+                android:layout_marginTop="10dp"
+                android:text="fitEnd" />
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:layout_width="180dp"
+                android:layout_height="100dp"
+
+                android:layout_margin="5dp"
+                android:background="#ffff00"
+                android:scaleType="fitEnd"
+                app:srcCompat="@drawable/dog02" />
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_margin="5dp"
+
+                android:background="#ffff00"
+                android:scaleType="fitEnd"
+                app:srcCompat="@drawable/call_48" />
+
+            <!--        <androidx.appcompat.widget.AppCompatImageView-->
+
+            <!--            android:layout_width="48px"-->
+            <!--            android:layout_height="48px"-->
+
+            <!--            android:layout_marginTop="10dp"-->
+            <!--            android:layout_columnSpan="2"-->
+            <!--            app:srcCompat="@drawable/call_48"-->
+            <!--            />-->
+
+            <!-- 빨강 center-->
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_columnSpan="2"
+                android:layout_marginTop="10dp"
+                android:text="center" />
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:layout_width="180dp"
+                android:layout_height="100dp"
+                android:layout_margin="5dp"
+
+                android:background="#ff0000"
+                android:scaleType="center"
+                app:srcCompat="@drawable/dog02" />
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:layout_width="180dp"
+                android:layout_height="100dp"
+                android:layout_margin="5dp"
+
+                android:background="#ff0000"
+                android:scaleType="center"
+                app:srcCompat="@drawable/call_48" />
+            <!-- 파랑 centerInside-->
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_columnSpan="2"
+                android:layout_marginTop="10dp"
+                android:text="centerInside" />
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:layout_width="180dp"
+                android:layout_height="100dp"
+                android:layout_margin="5dp"
+
+                android:background="#0000ff"
+                android:scaleType="centerInside"
+                app:srcCompat="@drawable/dog02" />
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:layout_width="180dp"
+                android:layout_height="100dp"
+                android:layout_margin="5dp"
+
+                android:background="#0000ff"
+                android:scaleType="centerInside"
+                app:srcCompat="@drawable/call_48" />
+            <!-- 회색 centerCrop-->
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_columnSpan="2"
+                android:layout_marginTop="10dp"
+                android:text="centerCrop" />
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:layout_width="180dp"
+                android:layout_height="100dp"
+                android:layout_margin="5dp"
+                android:background="#808080"
+                android:scaleType="centerCrop"
+                app:srcCompat="@drawable/dog02" />
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:layout_width="180dp"
+                android:layout_height="100dp"
+                android:layout_margin="5dp"
+                android:background="#808080"
+                android:scaleType="centerCrop"
+                app:srcCompat="@drawable/call_48" />
+        </GridLayout>
+    </ScrollView>
+</LinearLayout>

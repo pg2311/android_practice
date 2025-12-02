@@ -10,12 +10,15 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.Ex1_HelloWorld">
+        android:theme="@style/Theme.MemoProject">
         <activity
-            android:name=".NextActivity"
+            android:name=".MemoInfoActivity"
             android:exported="false" />
         <activity
-            android:name=".MainActivity"
+            android:name=".MemoEditActivity"
+            android:exported="false" />
+        <activity
+            android:name=".MemoMainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

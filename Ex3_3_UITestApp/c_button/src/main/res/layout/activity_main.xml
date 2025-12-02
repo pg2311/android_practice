@@ -1,0 +1,224 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="?attr/colorPrimary"
+        app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
+        app:titleTextColor="@color/white"
+        app:title="버튼"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"/>
+
+    <Button
+        android:id="@+id/button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Button"
+
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.075"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.13" />
+
+    <!-- android:src과 android:srcCompat의 차이점
+    android:src보다
+   이미지의 크기를 조정하더라도 품질 저하가 없고, 파일 크기도 작은 SVG파일이나 XML을 사용할 수 있는
+   srcCompat를 사용하는 것이 권장
+   -->
+    <ImageButton
+        android:id="@+id/imageButton"
+        android:layout_width="83dp"
+        android:layout_height="97dp"
+
+        app:srcCompat="@android:drawable/star_big_on"
+
+        app:layout_constraintStart_toStartOf="@+id/button"
+        app:layout_constraintTop_toBottomOf="@+id/button"
+        app:layout_constraintEnd_toEndOf="@+id/button"
+         />
+
+        <CheckBox
+            android:id="@+id/checkBox"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:checked="true"
+            android:text="ONE"
+            app:layout_constraintStart_toStartOf="@id/imageButton"
+            app:layout_constraintTop_toBottomOf="@+id/imageButton"
+            />
+
+        <CheckBox
+            android:id="@+id/checkBox2"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:checked="true"
+            android:text="TWO"
+            app:layout_constraintStart_toEndOf="@+id/checkBox"
+            app:layout_constraintTop_toTopOf="@+id/checkBox" />
+
+
+    <RadioGroup
+        android:id="@+id/radioGroup"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:background="#ffff00"
+        app:layout_constraintStart_toStartOf="@+id/checkBox"
+        app:layout_constraintTop_toBottomOf="@+id/checkBox"
+        >
+
+        <RadioButton
+            android:id="@+id/radioButton"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="RadioButton3" />
+
+        <RadioButton
+            android:id="@+id/radioButton2"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="RadioButton4" />
+    </RadioGroup>
+
+    <!-- textOn :켜짐 상태의 텍스트,
+         textOff:꺼짐 상태의 텍스트,
+         checked:초기 상태 true면 textOn이 처리되고, false면 textOff가 처리됨
+    -->
+    <ToggleButton
+        android:id="@+id/toggleButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        android:textOn="토글버튼 ON"
+        android:textOff="토글버튼 OFF"
+        android:checked="true"
+
+        app:layout_constraintStart_toStartOf="@+id/radioGroup"
+        app:layout_constraintTop_toBottomOf="@+id/radioGroup"/>
+
+    <Switch
+        android:id="@+id/switch1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        android:text="스위치버튼"
+        android:checked="true"
+
+        app:layout_constraintStart_toStartOf="@+id/toggleButton"
+        app:layout_constraintTop_toBottomOf="@+id/toggleButton"
+        tools:ignore="UseSwitchCompatOrMaterialXml" />
+
+
+
+    <com.google.android.material.chip.ChipGroup
+        android:id="@+id/colorChipGroup"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+
+        app:singleSelection="true"
+
+        app:layout_constraintStart_toStartOf="@+id/switch1"
+        app:layout_constraintTop_toBottomOf="@+id/switch1">
+
+        <!--삭제하는 이벤트 처리: chip.setOnCloseIconClickListener -->
+        <com.google.android.material.chip.Chip
+            android:id="@+id/chip1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Chip 1 과거 검색어1 삭제해보세요"
+            app:closeIconEnabled="true" />
+
+        <com.google.android.material.chip.Chip
+            android:id="@+id/chip2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="과거검색어 2"
+            app:closeIconEnabled="true" />
+
+        <com.google.android.material.chip.Chip
+            android:id="@+id/chip3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="과거검색어 3"
+            app:closeIconEnabled="true" />
+    </com.google.android.material.chip.ChipGroup>
+
+    <!-- 낮은가격, 랭킹순 중 단일선택 app:singleSelection="true"  -->
+    <com.google.android.material.chip.ChipGroup
+        android:id="@+id/chipGroup_filter"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="@+id/colorChipGroup"
+        app:layout_constraintTop_toBottomOf="@+id/colorChipGroup"
+        app:singleSelection="true" >
+
+        <!--
+         FilterChip
+            style="@style/Widget.MaterialComponents.Chip.Filter"
+            checkable + 상태별 색상 적용 가능합니다
+
+        android:checkable="true"로  선택할 때 check표기,
+        선택할 때 색상변경하려면
+          1. res/values/colors.xml에 아래 색상값 등록
+             <color name="gray">#BDBDBD</color>
+             <color name="purple_200">#BB86FC</color>
+          2. res/color/chip_bg_color.xml파일 추가
+          3.  app:chipBackgroundColor="@color/chip_bg_color"설정
+        -->
+        <com.google.android.material.chip.Chip
+        android:id="@+id/chip_option1"
+        style="@style/Widget.MaterialComponents.Chip.Filter"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="낮은가격순"
+        android:checkable="true"
+        app:chipBackgroundColor="@color/chip_bg_color"
+        />
+
+        <com.google.android.material.chip.Chip
+        android:id="@+id/chip_option2"
+        style="@style/Widget.MaterialComponents.Chip.Filter"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="랭킹순"
+        android:checkable="true"
+        app:chipBackgroundColor="@color/chip_bg_color"
+        />
+    </com.google.android.material.chip.ChipGroup>
+
+    <com.google.android.material.chip.ChipGroup
+        android:id="@+id/chipGroup_refresh"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="@+id/chipGroup_filter"
+        app:layout_constraintTop_toBottomOf="@+id/chipGroup_filter" >
+
+    <!-- Action Chip
+            style="@style/Widget.MaterialComponents.Chip.Action"
+           버튼처럼 보이도록 설계되어 있습니다.
+           아이콘이 포함될 수 있습니다
+    -->
+    <com.google.android.material.chip.Chip
+        android:id="@+id/chip_action"
+        style="@style/Widget.MaterialComponents.Chip.Action"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="새로고침"
+        app:chipIconVisible="true"
+        app:chipIcon="@drawable/ic_refresh"
+        />
+</com.google.android.material.chip.ChipGroup>
+</androidx.constraintlayout.widget.ConstraintLayout>

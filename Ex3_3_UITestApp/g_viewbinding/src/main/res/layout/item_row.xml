@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ImageView
+        android:id="@+id/prodImg"
+        android:layout_width="208dp"
+        android:layout_height="223dp"
+        android:layout_margin="5dp"
+        android:layout_marginStart="5dp"
+        android:layout_marginTop="16dp"
+        android:background="#ccaaff"
+        android:contentDescription="스크린리더가 읽어줄 텍스트입니다"
+        android:scaleType="fitXY"
+        android:src="@drawable/c0001"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        />
+
+    <TextView
+        android:id="@+id/prodName"
+        android:text="상품번호"
+        android:textSize="20sp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="56dp"
+        app:layout_constraintStart_toEndOf="@+id/prodImg"
+        app:layout_constraintTop_toTopOf="@+id/prodImg" />
+
+    <TextView
+        android:id="@+id/prodPrice"
+        android:text="상품가격"
+        android:textSize="20sp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginBottom="52dp"
+        app:layout_constraintBottom_toBottomOf="@+id/prodImg"
+        app:layout_constraintStart_toEndOf="@+id/prodImg" />
+</androidx.constraintlayout.widget.ConstraintLayout>
