@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/gridLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <!--
+    TODO 1.행의 최대 열의 개수는 1개이고 버튼들을 아래와 같은 비율로 배치하세요
+    먼저 MainActivity.java에서 다음과 같이 바꿉니다
+    setContentView(R.layout.activity_gridlayout2);
+
+    그리고, 행의 최대 열의 개수는 1개인 <GridLayout>을 완성하여
+    버튼3개를 배치해 봅니다
+    버튼 1 : 높이비율 1, text="TOP"
+    버튼 2 : 높이비율 2, text="MIDDLE"
+    버튼 3 : 높이비율 1, text="BOTTOM"
+    -->
+
+    <GridLayout
+        android:columnCount="1"
+        android:layout_width="match_parent"
+        android:layout_height="300dp"
+        android:orientation="vertical">
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_rowWeight="1"
+            android:text="TOP"
+            />
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_rowWeight="2"
+            android:text="MIDDLE"
+            />
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_rowWeight="1"
+            android:text="BOTTOM"
+            />
+    </GridLayout>
+
+    <!-- android:layout_rowspan="2" : 행 병합 -->
+    <GridLayout
+        android:layout_marginBottom="50dp"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:columnCount="3">
+        <Button
+            android:layout_rowSpan="2"
+            android:layout_height="0dp"
+            android:layout_rowWeight="1"
+            android:layout_margin="5dp"
+            android:text="1" />
+        <Button
+            android:layout_height="0dp"
+            android:layout_rowWeight="1"
+            android:layout_margin="5dp"
+            android:text="2" />
+        <Button
+            android:layout_height="0dp"
+            android:layout_rowWeight="1"
+            android:layout_margin="5dp"
+            android:text="3" />
+        <Button
+            android:layout_height="0dp"
+            android:layout_rowWeight="1"
+            android:layout_margin="5dp"
+            android:text="4" />
+    </GridLayout>
+
+    <!-- TODO 2. 행의 최대 열의 개수는 3개이고, 총 5개의 버튼을 순서대로 배치하세요
+    A버튼 : 2개 행병합, 행 비율1, 열비율1
+    B버튼 : 열 비율2
+    C버튼 : 열비율1
+    D버튼 : 열 비율2,
+    E버튼 : 열비율1
+     -->
+
+    <!--android:columnSpan = "2" 셀병합 -->
+    <GridLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:columnCount="2">
+        <Button
+            android:layout_width="0dp"
+            android:layout_columnWeight="1"
+            android:layout_rowSpan="2"
+            android:layout_height="0dp"
+            android:layout_rowWeight="1"
+            android:layout_margin="5dp"
+            android:text="가" />
+
+        <Button
+            android:layout_width="0dp"
+            android:layout_columnWeight="1"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:text="나" />
+
+        <Button
+            android:layout_width="0dp"
+            android:layout_columnWeight="1"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:text="다" />
+
+        <Button
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_columnSpan="2"
+            android:layout_columnWeight="1"
+            android:layout_margin="5dp"
+            android:text="라" />
+    </GridLayout>
+
+</LinearLayout>

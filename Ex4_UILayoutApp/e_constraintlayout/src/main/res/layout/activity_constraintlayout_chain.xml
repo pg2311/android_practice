@@ -1,0 +1,230 @@
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="16dp">
+<!--
+크기를 0dp (MATCH_CONSTRAINT)로 설정합니다
+app:layout_constraintStart_toStartOf="parent": 부모의 시작 지점에 연결하여 체인의 시작점을 설정했습니다.
+
+-->
+    <TextView
+        android:id="@+id/textView1"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:background="#FF9800"
+        android:gravity="center"
+
+        android:text="start,end,top_1"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/textView2"
+        app:layout_constraintTop_toTopOf="parent"
+        android:textSize="20sp"
+        />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+
+        android:layout_marginTop="32dp"
+        android:background="#2196F3"
+        android:gravity="center"
+
+        android:text="start,end,top_2"
+        app:layout_constraintStart_toEndOf="@+id/textView1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:textSize="20sp"
+ />
+
+<!--
+수평 체인 : constraintStart, constraintEnd 반드시 제약필요,
+app:layout_constraintStart_toStartOf="parent": 부모의 시작 지점에 연결하여 체인의 시작점을 설정했습니다.
+app:layout_constraintEnd_toStartOf="@id/textView4"
+-->
+
+<!-- 체인스타일 : Spread (균등 분배)
+1) spread체인은 뷰의 실제 크기(wrap_content에 의해 결정)를 먼저 계산한 후, 남는 공간을 뷰들 사이와 양쪽에 균등하게 분배하여 배치합니다.
+app:layout_constraintHorizontal_chainStyle="spread"
+
+2) 뷰크기 : layout_width가 match_constraint(0dp)면 안됩니다
+           일반적으로 wrap_content
+-->
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="47dp"
+        android:background="#FF9800"
+        android:gravity="center"
+        android:text="spread 1"
+        app:layout_constraintHorizontal_chainStyle="spread"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/textView4"
+        app:layout_constraintTop_toBottomOf="@id/textView1"
+        android:textSize="20sp"/>
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="48dp"
+        android:layout_marginTop="44dp"
+        android:background="#2196F3"
+        android:gravity="center"
+        android:text="spread 2"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/textView3"
+        app:layout_constraintTop_toBottomOf="@id/textView2" />
+
+    <!-- TODO 1. textView5과 textView6의 체인스타일을 spread-inside로  완성해봅니다
+체인 양 끝의 뷰를 컨테이너 경계에 밀착시키고, 뷰들 사이의 간격만 균등하게 분배합니다.
+1) app:layout_constraintHorizontal_chainStyle="spread_inside"
+2) 뷰크기 : layout_width가 match_constraint(0dp)면 안됩니다
+-->
+
+
+
+    <TextView
+        android:id="@+id/textView5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="47dp"
+        android:background="#FF9800"
+        android:gravity="center"
+        android:text="spread_inside 1"
+
+
+        android:textSize="20sp"/>
+
+    <TextView
+        android:id="@+id/textView6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="47dp"
+        android:background="#2196F3"
+        android:gravity="center"
+        android:text="spread_inside 2"
+
+        android:textSize="20sp"/>
+
+<!--체인스타일 :  Weighted
+가중치 기반 체인(Weighted Chain)을 사용할 때,
+1) layout_width="0dp"
+2) 가중치 설정 layout_constraintHorizontal_weight="3"
+3) layout_constraintHorizontal_chainStyle="spread"
+ 또는 spread_inside 스타일이 명시되어야 합니다.
+    -->
+    <TextView
+        android:id="@+id/textView7"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="47dp"
+        android:background="#FF9800"
+        android:gravity="center"
+        android:text="weight 3"
+
+        app:layout_constraintHorizontal_chainStyle="spread"
+        app:layout_constraintHorizontal_weight="3"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/textView8"
+        app:layout_constraintTop_toBottomOf="@id/textView5"
+        android:textSize="20sp"/>
+
+    <TextView
+        android:id="@+id/textView8"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="47dp"
+        android:background="#2196F3"
+        android:gravity="center"
+        android:text="weight 1"
+        app:layout_constraintHorizontal_weight="1"
+        app:layout_constraintStart_toEndOf="@id/textView7"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/textView6"
+        android:textSize="20sp"/>
+
+<!-- 체인스타일 :  packed
+ 뷰들을 서로 최대한 가깝게 뭉쳐서 하나의 그룹으로 만듭니다
+ 뭉쳐진 뷰 그룹 전체를 사용 가능한 공간의 중앙에 배치합니다.
+ 1) app:layout_constraintHorizontal_chainStyle="packed"
+ 2) 뷰크기 : layout_width="wrap_content"
+
+-->
+    <TextView
+        android:id="@+id/textView9"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="47dp"
+        android:background="#FF9800"
+        android:gravity="center"
+        android:text="packed 1"
+
+        app:layout_constraintHorizontal_chainStyle="packed"
+
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/textView10"
+        app:layout_constraintTop_toBottomOf="@id/textView7"
+        android:textSize="20sp"/>
+
+    <TextView
+        android:id="@+id/textView10"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="47dp"
+        android:background="#2196F3"
+        android:gravity="center"
+        android:text="packed 2"
+        app:layout_constraintStart_toEndOf="@id/textView9"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/textView8"
+        android:textSize="20sp"/>
+
+<!--
+체인스타일 :  packed chain with Bias
+    packed 체인에 바이어스(Bias)를 적용하여 체인 그룹 전체의 위치를 왼쪽이나 오른쪽으로 조정할 수 있습니다
+
+    app:layout_constraintHorizontal_bias 속성을 추가하여 설정하며,
+    값은 0.0(왼쪽/시작 끝)~1.0(오른쪽/끝 끝) 사이를 사용합니다.
+1) app:layout_constraintHorizontal_chainStyle="packed" +
+   app:layout_constraintHorizontal_bias="[0.0 ~ 1.0]"
+2)  뷰크기 : 일반적으로 wrap_content
+예시로 오른쪽으로 쏠리게 (바이어스 0.75) 설정해보겠습니다.
+-->
+    <TextView
+        android:id="@+id/textView11"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="47dp"
+        android:background="#FF9800"
+        android:gravity="center"
+        android:text="packedBias"
+
+        app:layout_constraintHorizontal_chainStyle="packed"
+
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/textView12"
+        app:layout_constraintTop_toBottomOf="@id/textView9"
+
+    app:layout_constraintHorizontal_bias="0.75"
+        android:textSize="20sp"/>
+
+    <TextView
+        android:id="@+id/textView12"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="47dp"
+        android:background="#2196F3"
+        android:gravity="center"
+        android:text="packedBias"
+        app:layout_constraintStart_toEndOf="@id/textView11"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/textView10"
+
+        android:textSize="20sp"/>
+</androidx.constraintlayout.widget.ConstraintLayout>

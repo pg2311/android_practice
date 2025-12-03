@@ -21,4 +21,4 @@ dependencyResolutionManagement {
 
 rootProject.name = "MemoProject"
 include(":app")
- 
+include(":a_listview")

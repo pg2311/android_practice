@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+
+    <TextView
+        android:id="@+id/label"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Type here:" />
+
+    <!--layout_below="@id/label" : 주어진 앵커 뷰 ID 아래에 이 뷰의 상단 가장자리를 배치합니다. -->
+    <EditText
+        android:id="@+id/entry"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/label"
+        android:background="@android:drawable/editbox_background" />
+
+    <!-- layout_alignParentRight="true" : true인 경우, 이 뷰의 오른쪽 가장자리가 부모 뷰의 오른쪽 가장자리와 일치합니다.  -->
+    <Button
+        android:id="@+id/ok"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/entry"
+        android:layout_alignParentRight="true"
+        android:layout_marginStart="100dp"
+        android:text="OK" />
+    <!-- layout_alignTop: 이 뷰의 상단 가장자리를 주어진 앵커 뷰 ID의 상단 가장자리와 일치시킵니다.
+         layout_toLeftOf: 이 뷰의 오른쪽 가장자리를 지정된 앵커 뷰 ID의 왼쪽에 배치합니다.
+    -->
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@id/ok"
+        android:layout_toLeftOf="@id/ok"
+        android:text="Cancel" />
+
+</RelativeLayout>
