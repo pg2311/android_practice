@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item
+        android:id="@+id/item_first"
+        android:icon="@drawable/example_item_icon"
+        android:title="홈"
+        app:showAsAction="ifRoom" />
+<!--    <item>을 <group>태그없이 독립적으로 사용하면 기본그룹ID(0값)를 부여하여 관리됩니다-->
+<!--    <group android:id="@+id/group_first">-->
+    <item
+        android:id="@+id/item_second"
+        android:icon="@drawable/example_item2_icon"
+        android:title="음악"
+        app:showAsAction="ifRoom" />
+    <item
+        android:id="@+id/item_third"
+        android:title="설정" />
+<!--        </group>-->
+    <item
+        android:id="@+id/item_submenu"
+        android:title="서브메뉴">
+        <menu>
+
+            <item
+                android:id="@+id/item_submenu_first"
+                android:title="개발자 정보" />
+
+        </menu>
+    </item>
+</menu>

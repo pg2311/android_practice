@@ -60,6 +60,7 @@
         tools:layout_editor_absoluteX="0dp" />
 
     <com.scsa.paint.PaintDrawView
+        android:id="@+id/wtf"
         android:layout_width="match_parent"
         android:layout_height="400dp"
         app:layout_constraintTop_toBottomOf="@+id/brushWidthSeekBar"

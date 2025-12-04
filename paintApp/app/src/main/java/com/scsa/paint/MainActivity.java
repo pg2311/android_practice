@@ -1,8 +1,6 @@
 package com.scsa.paint;
 
-import android.graphics.Paint;
 import android.os.Bundle;
-import android.view.View;
 import android.widget.Button;
 import android.widget.SeekBar;
 import android.widget.TextView;
@@ -30,7 +28,8 @@ public class MainActivity extends AppCompatActivity {
         SeekBar seekBar = findViewById(R.id.brushWidthSeekBar);
         TextView textView = findViewById(R.id.brushWidthText);
 
-        PaintDrawView paintDrawView = new PaintDrawView(this);
+//        PaintDrawView paintDrawView = new PaintDrawView(this);
+        PaintDrawView paintDrawView = findViewById(R.id.wtf);
 
         colorRed.setOnClickListener((v) -> {paintDrawView.setBrushColor("RED");});
         colorBlack.setOnClickListener((v) -> {paintDrawView.setBrushColor("BLACK");});

@@ -20,7 +20,7 @@ import java.util.Map;
 class Point {
     float x;
     float y;
-    int color;
+    int color = Color.RED;
     int width;
     boolean isStart;
 }
@@ -33,12 +33,13 @@ public class PaintDrawView extends View {
     private int width;
 
     private void init(){
+        Log.i(TAG, "init!!!!!!!!!!");
         colorMap = new HashMap<>();
         colorMap.put("RED", Color.RED);
         colorMap.put("BLACK", Color.BLACK);
         colorMap.put("BLUE", Color.BLUE);
 
-        color = Color.BLACK;
+        color = Color.BLUE;
         width = 10;
     }
 
@@ -58,22 +59,22 @@ public class PaintDrawView extends View {
     }
 
     public void setBrushColor(String color) {
-        Log.i(TAG, "setBrushColor: " + color);
         if (colorMap.containsKey(color)) {
+            Log.i(TAG, "setBrushColor: " + color + colorMap.get(color));
             this.color = colorMap.get(color);
         }
     }
 
     public void clearAll() {
-        Log.i(TAG, "clearAll");
         points.clear();
         color = Color.BLACK;
         width = 10;
+        Log.i(TAG, "clearAll" + color);
     }
 
     public void setBrushWidth(int w) {
-        Log.i(TAG, "setBrushWidth: " + w);
         width = w;
+        Log.i(TAG, "setBrushWidth: " + w + "->" + width);
     }
 
     @Override
@@ -90,7 +91,7 @@ public class PaintDrawView extends View {
             paint.setColor(p.color);
             paint.setStrokeWidth(p.width);
 
-            Log.i(TAG, "color: " + p0.color);
+            Log.i(TAG, i + "c: " + p0.color + "w: " + p0.width);
 
             canvas.drawLine(p0.x, p0.y, p.x, p.y, paint);
         }
@@ -104,20 +105,19 @@ public class PaintDrawView extends View {
         p.color = this.color;
         p.width = this.width;
         p.isStart = true;
+        Log.i(TAG, "c: " + p.color + "/" + this.color);
+        Log.i(TAG, "w: " + p.width+ "/" + this.width);
         switch (event.getAction()) {
             case MotionEvent.ACTION_DOWN:
-                Log.i(TAG, "onTouchEvent: DOWN: x: " + p.x + ", y: " + p.y);
                 points.add(p);
                 invalidate();
                 return true;
             case MotionEvent.ACTION_MOVE:
-                Log.i(TAG, "onTouchEvent: MOVE: x: " + p.x + ", y: " + p.y);
                 p.isStart = false;
                 points.add(p);
                 invalidate();
                 return true;
             case MotionEvent.ACTION_UP:
-                Log.i(TAG, "onTouchEvent: UP: x: " + p.x + ", y: " + p.y); p.isStart = false;
                 p.isStart = false;
                 points.add(p);
                 invalidate();

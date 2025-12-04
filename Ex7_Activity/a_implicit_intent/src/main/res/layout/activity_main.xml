@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout
+    android:id="@+id/main"
+    android:layout_height="match_parent"
+    android:layout_width="match_parent"
+    android:orientation="vertical"
+    xmlns:android="http://schemas.android.com/apk/res/android" >
+    <Button
+        android:id="@+id/btCall"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="전화" />
+    <Button
+        android:id="@+id/btGallary"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="갤러리" />
+    <Button
+        android:id="@+id/btExit"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="끝내기" />
+</LinearLayout>
