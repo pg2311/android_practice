@@ -70,6 +70,7 @@ public class PaintDrawView extends View {
         color = Color.BLACK;
         width = 10;
         Log.i(TAG, "clearAll" + color);
+        invalidate();
     }
 
     public void setBrushWidth(int w) {
@@ -80,6 +81,7 @@ public class PaintDrawView extends View {
     @Override
     protected void onDraw(@NonNull Canvas canvas) {
         super.onDraw(canvas);
+        Paint paint = new Paint();
         for (int i = 0; i < points.size(); i++) {
             Point p = points.get(i);
             if (p.isStart) {
@@ -87,7 +89,6 @@ public class PaintDrawView extends View {
             }
 
             Point p0 = points.get(i - 1);
-            Paint paint = new Paint();
             paint.setColor(p.color);
             paint.setStrokeWidth(p.width);
 
