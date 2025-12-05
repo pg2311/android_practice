@@ -47,21 +47,60 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/memoEditTextBody" />
 
+    <TextView
+        android:id="@+id/memoEditTextRegDateTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="알람 시간"
+        android:visibility="gone"
+        app:layout_constraintBottom_toTopOf="@+id/memoEditLayoutRegTime"
+        app:layout_constraintStart_toStartOf="parent" />
 
+    <LinearLayout
+        android:id="@+id/memoEditLayoutRegTime"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:visibility="gone"
+        app:layout_constraintBottom_toTopOf="@+id/linearLayout">
+
+        <Button
+            android:id="@+id/memoEditBtnSetAlarm"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="알람설정"
+            />
+        <EditText
+            android:id="@+id/memoEditEditTextRegTime"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:ems="10"
+            android:inputType="text"
+            android:text="" />
+
+        <Button
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="알람취소"
+            />
+
+    </LinearLayout>
 
 
     <LinearLayout
+        android:id="@+id/linearLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:layout_constraintBottom_toBottomOf="parent"
-        >
+        app:layout_constraintBottom_toBottomOf="parent">
 
         <Button
             android:id="@+id/memoEditBtnSave"
             android:layout_width="0dp"
-            android:layout_weight="1"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="10dp"
+            android:layout_weight="1"
             android:text="저장"
             app:layout_constraintBottom_toBottomOf="parent"
             tools:layout_editor_absoluteX="72dp" />
@@ -69,9 +108,9 @@
         <Button
             android:id="@+id/memoEditBtnDelete"
             android:layout_width="0dp"
-            android:layout_weight="1"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="10dp"
+            android:layout_weight="1"
             android:text="삭제"
             android:visibility="gone"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -80,40 +119,14 @@
         <Button
             android:id="@+id/memoEditBtnCancel"
             android:layout_width="0dp"
-            android:layout_weight="1"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="10dp"
+            android:layout_weight="1"
             android:text="취소"
             app:layout_constraintBottom_toBottomOf="parent"
             tools:layout_editor_absoluteX="245dp" />
 
     </LinearLayout>
-
-    <TextView
-        android:id="@+id/memoEditTextRegDateTitle"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="등록날짜"
-        android:visibility="gone"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/guideline" />
-
-    <TextView
-        android:visibility="gone"
-        android:id="@+id/memoEditTextRegDate"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:text="memoEditTextRegDateTitle"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/memoEditTextRegDateTitle" />
-
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guideline"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        app:layout_constraintGuide_begin="555dp" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

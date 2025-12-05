@@ -7,6 +7,7 @@ public class MemoDto implements Serializable {
     private String title;
     private String body;
     private long regDate;
+    private long alarmDate;
 
     public MemoDto() {
     }
@@ -36,6 +37,10 @@ public class MemoDto implements Serializable {
         return regDate;
     }
 
+    public long getAlarmDate() {
+        return alarmDate;
+    }
+
     public void setTitle(String t) {
         title = t;
     }
@@ -46,5 +51,9 @@ public class MemoDto implements Serializable {
 
     public void setRegDate(long r) {
         regDate = r;
+    }
+
+    public void setAlarmDate(long a) {
+        alarmDate = a;
     }
 }
