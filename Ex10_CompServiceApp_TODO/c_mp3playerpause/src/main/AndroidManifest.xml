@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- 1. 알림 런타임 권한 (API 33+) : 필수 -->
+    <uses-permission android:name="android.permission.POST_NOTIFICATIONS"/>
+
+    <!-- 2. 일반 포그라운드 서비스 권한 (API 34 미만 호환 및 필수 선언) -->
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE"/>
+
+    <!-- 3. 미디어 재생 포그라운드 서비스 타입 권한 (API 34+ 에서 필수) -->
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE_MEDIA_PLAYBACK"/>
+
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.CompServiceApp">
+        <service android:name=".MusicPlayPauseForegroundService"
+            android:exported="false"
+            android:foregroundServiceType="mediaPlayback"
+            />
+
+        <activity android:name=".MusicPlayPauseControllerActivity" android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+    </application>
+
+</manifest>

@@ -2,6 +2,8 @@ package com.example.android.e_widget;
 
 import android.content.Context;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Looper;
 import android.util.Log;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
@@ -51,9 +53,17 @@ public class MainActivity extends AppCompatActivity {
                 } catch (InterruptedException e) {
                     throw new RuntimeException(e);
                 }
-                runOnUiThread(() -> {
-                    progressBar.setVisibility(View.GONE);
-                });
+//                직접 Handler로 구현하지 않는 경우:
+//                runOnUiThread(() -> {
+//                    progressBar.setVisibility(View.GONE);
+//                });
+
+                // Handler로 직접 구현:
+                // MainThread의 Looper를 넣어서 MainThread의 Handler로 사용
+                // MainThrea는 기본 Looper와 MessageQueue가 제공된다.
+                Handler mainHandler = new Handler(Looper.getMainLooper());
+                mainHandler.post(() -> {progressBar.setVisibility(View.GONE);});
+
                 Log.i("Thread", "새로운 스레드 입니다");
             }
         });
